@@ -1,0 +1,69 @@
+{
+  "name": "serviceXpto",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_PATH=. istanbul cover _mocha -- -R spec test/*/*",
+    "lint": "jshint --verbose *.js lib/*.js services/*.js test/*/*.js",
+    "style": "jscs *.js",
+    "coverage:check": "istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
+    "coverage": "open reports/index.html"
+  },
+  "keywords": [
+  ],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bunyan": "^1.8.5",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "express-mw-bunyan": "^3.0.0",
+    "express-mw-correlation-id": "^3.0.0",
+    "express-validate-schema": "^1.0.1",
+    "joi": "^10.0.5",
+    "superagent": "^3.3.1",
+    "superagent-bunyan": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "0.4.5",
+    "jscs": "^3.0.7",
+    "jshint": "^2.9.4",
+    "mocha": "^3.1.2",
+    "nock": "^9.0.2",
+    "pre-commit": "^1.1.3",
+    "supertest": "^2.0.1"
+  },
+  "jscsConfig": {
+    "excludeFiles": [
+      "reports/*",
+      "node_modules/*",
+      "package.json",
+      "npm-debug.log"
+    ],
+    "preset": "airbnb",
+    "fix": true
+  },
+  "jshintConfig": {
+    "boss": true,
+    "node": true,
+    "strict": false,
+    "smarttabs": true,
+    "maxlen": 80,
+    "newcap": false,
+    "undef": true,
+    "unused": true,
+    "onecase": true,
+    "indent": 2,
+    "sub": true,
+    "esversion": 6
+  },
+  "pre-commit": [
+    "lint",
+    "style",
+    "test",
+    "coverage:check"
+  ]
+}
