@@ -9,7 +9,7 @@ module.exports = {
   },
   log: {
     level: process.env.LOG_LEVEL || 'DEBUG',
-    stream: process.stdout
+    stream:  process.env.LOG_STREAM || process.stdout
   },
   service: {
     port: process.env.HTTP_PORT || 4000
