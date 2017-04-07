@@ -7,7 +7,7 @@ const logger      = require('express-mw-bunyan');
 const requestId   = require('express-mw-correlation-id');
 
 const routes  = require('routes.js');
-const config  = require('config.js').service;
+const config  = require('config.js');
 const log     = require('log.js');
 
 const app = express();
@@ -27,7 +27,7 @@ app.use(logger(log));
 
 app.use('/', routes);
 
-const server = app.listen(config.port, onStart);
+const server = app.listen(config.service.port, onStart);
 
 server.on('error', onError);
 
