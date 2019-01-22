@@ -14,4 +14,9 @@ module.exports = {
   service: {
     port: process.env.HTTP_PORT || 4000
   },
+  weatherSvc: {
+    address: 'https://samples.openweathermap.org',
+    path: '/data/2.5/weather',
+    key: 'b6907d289e10d714a6e88b30761fae22'
+  }
 };
